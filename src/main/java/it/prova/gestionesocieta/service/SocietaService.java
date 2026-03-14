@@ -1,6 +1,5 @@
 package it.prova.gestionesocieta.service;
 
-import it.prova.gestionesocieta.model.Progetto;
 import it.prova.gestionesocieta.model.Societa;
 
 import java.util.List;
@@ -16,4 +15,16 @@ public interface SocietaService {
     public void inserisciNuovo(Societa societaInstance);
 
     public void rimuovi(Long idSocieta);
+
+    public void rimuoviConControllo(Long idSocieta) throws Exception;
+
+    // public void scollegaDipendentiDaSocieta(Long idSocieta);
+
+    public void inserisciNuovoConControllo(Societa societaInstance) throws Exception;
+
+  //  public void collegaDipendenteASocieta(Long idSocieta, Long idDipendente);
+
+    public Societa trovaPerRagioneSociale(String ragioneSociale);
+
+
 }

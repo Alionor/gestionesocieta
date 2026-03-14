@@ -22,7 +22,7 @@ public class Societa {
     @Column (name = "datachiusura")
     private LocalDate dataChiusura;
 
-    @OneToMany (fetch = FetchType.LAZY, mappedBy = "societa", cascade = {CascadeType.MERGE, CascadeType.PERSIST} )
+    @OneToMany (fetch = FetchType.LAZY, mappedBy = "societa" )
     private Set<Dipendente> dipendenti = new HashSet<>();
 
     public Societa(String ragioneSociale, String indirizzo, LocalDate dataFondazione, LocalDate dataChiusura) {

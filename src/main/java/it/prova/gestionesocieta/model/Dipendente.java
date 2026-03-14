@@ -11,6 +11,7 @@ public class Dipendente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id")
     private Long id;
     @Column(name = "nome")
     private String nome;
@@ -21,7 +22,7 @@ public class Dipendente {
     @Column (name = "redditoannuolordo")
     private int redditoAnnuoLordo;
 
-    @ManyToOne (fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne (fetch = FetchType.LAZY)
     @JoinColumn (name = "societa_id", nullable = false)
     private Societa societa;
 

@@ -34,8 +34,37 @@ public class SocietaServiceImpl implements SocietaService {
     }
 
     @Transactional
-    public void rimuovi(Long idProgetto) {
-        societaRepository.deleteById(idProgetto);
+    public void rimuovi(Long idSocieta) {
+        societaRepository.deleteById(idSocieta);
     }
+
+    @Transactional
+    public void rimuoviConControllo(Long idSocieta) throws Exception {
+        Societa societa = societaRepository.findEagerById(idSocieta);
+        if (societa.getDipendenti().size() != 0) throw new RuntimeException("Impossibile rimuovere società: dipendenti presenti.");
+        rimuovi(idSocieta);
+    }
+
+/*    @Transactional
+    public void scollegaDipendentiDaSocieta(Long idSocieta) {
+     societaRepository.unlinkEmployeesFromSociety(idSocieta);
+    }*/
+
+    @Transactional
+    public void inserisciNuovoConControllo(Societa societaInstance) throws Exception {
+        Societa societa = societaRepository.findByRagioneSociale(societaInstance.getRagioneSociale());
+        if (societa != null) throw new RuntimeException("Societa già presente nella lista.");
+        societaRepository.save(societaInstance);
+    }
+/*
+    @Transactional
+    public void collegaDipendenteASocieta(Long idSocieta, Long idDipendente) {
+        societaRepository.linkEmployeesToSociety(idSocieta, idDipendente);
+    }*/
+
+    public Societa trovaPerRagioneSociale(String ragioneSociale) {
+        return societaRepository.findByRagioneSociale(ragioneSociale);
+    }
+
 
 }
