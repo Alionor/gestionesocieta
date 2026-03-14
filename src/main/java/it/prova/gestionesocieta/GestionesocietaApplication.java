@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class GestionesocietaApplication implements CommandLineRunner {
-	//@Autowired
+	@Autowired
 	private BatteriaTestDipendente testDipendente;
 	@Autowired
 	private BatteriaTestSocieta testSocieta;
@@ -26,5 +26,8 @@ public class GestionesocietaApplication implements CommandLineRunner {
 		//società
 		testSocieta.testInserimentoERimozioneDiSocieta();
 		testSocieta.testFindByQuery();
+
+		//dipendente
+		testDipendente.testInserimentoDipendenteConControllo();
 	}
 }

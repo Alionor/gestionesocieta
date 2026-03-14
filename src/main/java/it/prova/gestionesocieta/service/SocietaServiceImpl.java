@@ -64,11 +64,6 @@ public class SocietaServiceImpl implements SocietaService {
         if (societa != null) throw new RuntimeException("Societa già presente nella lista.");
         societaRepository.save(societaInstance);
     }
-/*
-    @Transactional
-    public void collegaDipendenteASocieta(Long idSocieta, Long idDipendente) {
-        societaRepository.linkEmployeesToSociety(idSocieta, idDipendente);
-    }*/
 
     public Societa trovaPerRagioneSociale(String ragioneSociale) {
         return societaRepository.findByRagioneSociale(ragioneSociale);

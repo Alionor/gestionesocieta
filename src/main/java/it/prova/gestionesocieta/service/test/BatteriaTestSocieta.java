@@ -83,6 +83,4 @@ public class BatteriaTestSocieta {
         System.out.println("FINE testFindByQuery: CON SUCCESSO");
     }
 
-
-
 }

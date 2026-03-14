@@ -20,10 +20,5 @@ public interface SocietaRepository  extends CrudRepository<Societa, Long> {
     @Query("UPDATE Dipendente d SET d.societa.id = NULL WHERE d.societa.id = :societaId")
     void unlinkEmployeesFromSociety(@Param("societaId")Long idSocieta);*/
 
-/*    @Modifying
-    @Query ("UPDATE Dipendente d SET d.societa.id = :societaId WHERE d.id = :dipendeteId")
-    void linkEmployeesToSociety(@Param("societaId") Long idSocieta, @Param ("dipendeteId") Long idDipendente);*/
-
-
 
 }

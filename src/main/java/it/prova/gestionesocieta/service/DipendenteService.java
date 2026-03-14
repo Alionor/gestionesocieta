@@ -15,4 +15,9 @@ public interface DipendenteService {
     public void inserisciNuovo(Dipendente dipendenteInstance);
 
     public void rimuovi(Long idDipendente);
+
+    //public void collegaDipendenteASocieta(Long idSocieta, Long idDipendente);
+
+    public void inserisciNuovoConControllo(Long idSocieta, Dipendente dipendente);
+
 }

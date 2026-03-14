@@ -22,8 +22,6 @@ public interface SocietaService {
 
     public void inserisciNuovoConControllo(Societa societaInstance) throws Exception;
 
-  //  public void collegaDipendenteASocieta(Long idSocieta, Long idDipendente);
-
     public Societa trovaPerRagioneSociale(String ragioneSociale);
 
     public List<Societa> findByExample(Societa societa);
