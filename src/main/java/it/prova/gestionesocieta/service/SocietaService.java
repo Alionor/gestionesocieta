@@ -26,5 +26,6 @@ public interface SocietaService {
 
     public Societa trovaPerRagioneSociale(String ragioneSociale);
 
+    public List<Societa> findByExample(Societa societa);
 
 }

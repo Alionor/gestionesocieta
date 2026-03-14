@@ -16,7 +16,7 @@ public class Societa {
     @Column (name = "ragionesociale")
     private String ragioneSociale;
     @Column (name = "indirizzo")
-    private String Indirizzo;
+    private String indirizzo;
     @Column (name = "datafondazione")
     private LocalDate dataFondazione;
     @Column (name = "datachiusura")
@@ -27,7 +27,7 @@ public class Societa {
 
     public Societa(String ragioneSociale, String indirizzo, LocalDate dataFondazione, LocalDate dataChiusura) {
         this.ragioneSociale = ragioneSociale;
-        Indirizzo = indirizzo;
+        this.indirizzo = indirizzo;
         this.dataFondazione = dataFondazione;
         this.dataChiusura = dataChiusura;
     }
@@ -52,11 +52,11 @@ public class Societa {
     }
 
     public String getIndirizzo() {
-        return Indirizzo;
+        return indirizzo;
     }
 
     public void setIndirizzo(String indirizzo) {
-        Indirizzo = indirizzo;
+        this.indirizzo = indirizzo;
     }
 
     public LocalDate getDataFondazione() {
@@ -88,7 +88,7 @@ public class Societa {
         return "Societa{" +
                 "dataChiusura=" + dataChiusura +
                 ", dataFondazione=" + dataFondazione +
-                ", Indirizzo='" + Indirizzo + '\'' +
+                ", Indirizzo='" + indirizzo + '\'' +
                 ", ragioneSociale='" + ragioneSociale + '\'' +
                 ", id=" + id +
                 '}';

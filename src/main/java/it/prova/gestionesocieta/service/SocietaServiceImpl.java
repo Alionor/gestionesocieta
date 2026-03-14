@@ -1,7 +1,12 @@
 package it.prova.gestionesocieta.service;
 
+import ch.qos.logback.core.util.StringUtil;
+import io.micrometer.common.util.StringUtils;
 import it.prova.gestionesocieta.model.Societa;
 import it.prova.gestionesocieta.repository.SocietaRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +16,9 @@ import java.util.List;
 @Service
 @Transactional (readOnly = true)
 public class SocietaServiceImpl implements SocietaService {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @Autowired
     private SocietaRepository societaRepository;
@@ -64,6 +72,25 @@ public class SocietaServiceImpl implements SocietaService {
 
     public Societa trovaPerRagioneSociale(String ragioneSociale) {
         return societaRepository.findByRagioneSociale(ragioneSociale);
+    }
+
+    public List<Societa> findByExample(Societa societa) {
+
+        StringBuilder queryBuilder = new StringBuilder("SELECT s FROM Societa s WHERE s.id = s.id");
+
+        if(StringUtils.isNotEmpty(societa.getRagioneSociale())) queryBuilder.append(" and s.ragioneSociale like :ragioneSociale");
+        if(StringUtils.isNotEmpty(societa.getIndirizzo())) queryBuilder.append(" and s.indirizzo like :indirizzo");
+        if(StringUtils.isNotEmpty(societa.getDataFondazione() != null ? societa.getDataFondazione().toString() : null)) queryBuilder.append(" and s.dataFondazione = :dataFondazione");
+        if(StringUtils.isNotEmpty(societa.getDataChiusura() != null ? societa.getDataChiusura().toString() : null)) queryBuilder.append(" and s.dataChiusura = :dataChiusura");
+
+        TypedQuery<Societa> query = entityManager.createQuery(queryBuilder.toString(), Societa.class);
+
+        if(StringUtils.isNotEmpty(societa.getRagioneSociale())) query.setParameter("ragioneSociale", "%" + societa.getRagioneSociale() + "%");
+        if(StringUtils.isNotEmpty(societa.getIndirizzo())) query.setParameter("indirizzo", "%" + societa.getIndirizzo() + "%");
+        if(StringUtils.isNotEmpty(societa.getDataFondazione() != null ? societa.getDataFondazione().toString() : null)) query.setParameter("dataFondazione", societa.getDataFondazione());
+        if(StringUtils.isNotEmpty(societa.getDataChiusura() != null ? societa.getDataChiusura().toString() : null)) query.setParameter("dataChiusura", societa.getDataChiusura());
+
+        return query.getResultList();
     }
 
 

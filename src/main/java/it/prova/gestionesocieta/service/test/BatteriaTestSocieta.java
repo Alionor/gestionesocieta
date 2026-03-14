@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class BatteriaTestSocieta {
@@ -55,5 +56,33 @@ public class BatteriaTestSocieta {
 
         System.out.println("FINE TEST INSERIMENTO E RIMOZIONE SOCIETA: CON SUCCESSO");
     }
+
+    public void testFindByQuery() {
+        System.out.println("INIZIO testFindByQuery");
+            //inserisco delle società
+        List<Societa> listaSocieta = List.of(
+                new Societa("TechVision SRL", "Via Roma 12, Milano", LocalDate.of(2015,3,18), null),
+                new Societa("GreenFuture SPA", "Via Torino 45, Torino", LocalDate.of(2012,9,7), LocalDate.of(2020,1,22)),
+                new Societa("DigitalWave SRL", "Via Firenze 8, Firenze", LocalDate.of(2020,1,22), null),
+                new Societa("Innovatek SRL", "Via Napoli 63, Firenze", LocalDate.of(2016,11,3), LocalDate.of(2020,1,22))
+        );
+
+        for (Societa s : listaSocieta) {
+            societaService.inserisciNuovo(s);
+        }
+
+        Societa societaExample = new Societa();
+        societaExample.setIndirizzo("Firenze");
+        System.out.println(societaService.findByExample(societaExample));
+        societaExample.setRagioneSociale("Digital");
+        System.out.println(societaService.findByExample(societaExample));
+        societaExample = new Societa();
+        societaExample.setDataFondazione(LocalDate.of(2012,9,07));
+        System.out.println(societaService.findByExample(societaExample));
+
+        System.out.println("FINE testFindByQuery: CON SUCCESSO");
+    }
+
+
 
 }

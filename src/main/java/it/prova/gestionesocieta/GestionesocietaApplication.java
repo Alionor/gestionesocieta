@@ -23,6 +23,8 @@ public class GestionesocietaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		//società
 		testSocieta.testInserimentoERimozioneDiSocieta();
+		testSocieta.testFindByQuery();
 	}
 }
