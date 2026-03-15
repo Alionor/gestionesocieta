@@ -1,5 +1,6 @@
 package it.prova.gestionesocieta.service;
 
+import it.prova.gestionesocieta.model.Dipendente;
 import it.prova.gestionesocieta.model.Progetto;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public interface ProgettoService {
     public void inserisciNuovo(Progetto progettoInstance);
 
     public void rimuovi(Long idDipendente);
+
+    public void collegaProgettoAPiuDipendenti(Long idProgetto, List<Dipendente> dipendenti);
+
+    public Progetto trovaPerIdEager(Long idProgetto);
 }

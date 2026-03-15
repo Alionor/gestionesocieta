@@ -14,7 +14,7 @@ public class GestionesocietaApplication implements CommandLineRunner {
 	private BatteriaTestDipendente testDipendente;
 	@Autowired
 	private BatteriaTestSocieta testSocieta;
-	//@Autowired
+	@Autowired
 	private BatteriaTestProgetto testProgetto;
 
 	public static void main(String[] args) {
@@ -29,6 +29,9 @@ public class GestionesocietaApplication implements CommandLineRunner {
 
 		//dipendente
 		//testDipendente.testInserimentoDipendenteConControllo();
-		testDipendente.testAbbinamentoDipendenteAProgetti();
+		//testDipendente.testAbbinamentoDipendenteAProgetti();
+
+		//progetto
+		testProgetto.testAbbinamentoProgettoAPiuDipendenti();
 	}
 }
