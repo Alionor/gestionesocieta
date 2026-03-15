@@ -28,4 +28,6 @@ public interface SocietaService {
 
     public List<String> trovaSocietaPerProgettiMaggioriDiUnAnno();
 
+    public List<Societa> trovaSocietaConDataFondazioneSuccessivaADataAssunzioneDipendente();
+
 }

@@ -28,15 +28,15 @@ public class GestionesocietaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//società
-		//testSocieta.testInserimentoERimozioneDiSocieta();
-		//testSocieta.testFindByQuery();
+		testSocieta.testInserimentoERimozioneDiSocieta();
+		testSocieta.testFindByQuery();
 
 		//dipendente
-		//testDipendente.testInserimentoDipendenteConControllo();
-		//testDipendente.testAbbinamentoDipendenteAProgetti();
+		testDipendente.testInserimentoDipendenteConControllo();
+		testDipendente.testAbbinamentoDipendenteAProgetti();
 
 		//progetto
-		//testProgetto.testAbbinamentoProgettoAPiuDipendenti();
+		testProgetto.testAbbinamentoProgettoAPiuDipendenti();
 
 		//liste di select
 		testSelect.testListe();

@@ -92,5 +92,9 @@ public class SocietaServiceImpl implements SocietaService {
         return societaRepository.findAllByProgetti_durataInMesiGreaterThan(12);
     }
 
+    public List<Societa> trovaSocietaConDataFondazioneSuccessivaADataAssunzioneDipendente() {
+        return societaRepository.findSocietaByDipendenteWhereDataAssunzionePrecedenteADataFondazione();
+    }
+
 
 }
