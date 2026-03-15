@@ -71,4 +71,8 @@ public class ProgettoServiceImpl implements ProgettoService {
        return progettoRepository.findAllByDipendente_RalGreaterThan(30000);
     }
 
+    public List<Progetto> trovaProgettiConDipendentiDiSocietaChiuse() {
+        return progettoRepository.findAllByDipendentiWhoseSocietaClosed();
+    }
+
 }

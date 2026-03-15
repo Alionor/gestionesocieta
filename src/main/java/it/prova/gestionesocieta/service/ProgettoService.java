@@ -25,4 +25,5 @@ public interface ProgettoService {
 
     public List<Progetto> trovaProgettiByDipendenteConRalMaggioreDi30k();
 
+    public List<Progetto> trovaProgettiConDipendentiDiSocietaChiuse();
 }
