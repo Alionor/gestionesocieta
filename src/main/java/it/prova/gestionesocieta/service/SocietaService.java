@@ -26,4 +26,6 @@ public interface SocietaService {
 
     public List<Societa> findByExample(Societa societa);
 
+    public List<String> trovaSocietaPerProgettiMaggioriDiUnAnno();
+
 }

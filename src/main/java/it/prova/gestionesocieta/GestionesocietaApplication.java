@@ -3,6 +3,7 @@ package it.prova.gestionesocieta;
 import it.prova.gestionesocieta.service.ProgettoService;
 import it.prova.gestionesocieta.service.test.BatteriaTestDipendente;
 import it.prova.gestionesocieta.service.test.BatteriaTestProgetto;
+import it.prova.gestionesocieta.service.test.BatteriaTestSelect;
 import it.prova.gestionesocieta.service.test.BatteriaTestSocieta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -17,6 +18,8 @@ public class GestionesocietaApplication implements CommandLineRunner {
 	private BatteriaTestSocieta testSocieta;
 	@Autowired
 	private BatteriaTestProgetto testProgetto;
+	@Autowired
+	private BatteriaTestSelect testSelect;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionesocietaApplication.class, args);
@@ -33,9 +36,9 @@ public class GestionesocietaApplication implements CommandLineRunner {
 		//testDipendente.testAbbinamentoDipendenteAProgetti();
 
 		//progetto
-		testProgetto.testAbbinamentoProgettoAPiuDipendenti();
+		//testProgetto.testAbbinamentoProgettoAPiuDipendenti();
 
 		//liste di select
-		testProgetto.testListe();
+		testSelect.testListe();
 	}
 }

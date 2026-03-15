@@ -67,4 +67,8 @@ public class ProgettoServiceImpl implements ProgettoService {
        return progettoRepository.findClientiBySocieta(societa.getId());
     }
 
+    public List<Progetto> trovaProgettiByDipendenteConRalMaggioreDi30k() {
+       return progettoRepository.findAllByDipendente_RalGreaterThan(30000);
+    }
+
 }

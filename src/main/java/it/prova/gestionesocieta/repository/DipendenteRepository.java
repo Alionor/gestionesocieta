@@ -24,4 +24,6 @@ public interface DipendenteRepository extends CrudRepository<Dipendente, Long> {
     @EntityGraph(attributePaths = "progetti")
     Dipendente getDipendenteEagerById(Long idDipendente);
 
+
+
 }

@@ -17,4 +17,10 @@ public interface ProgettoRepository  extends CrudRepository<Progetto, Long> {
 
     @Query ("SELECT distinct p.cliente FROM Progetto p join p.dipendenti d where d.societa.id = :idSocieta")
     List<String> findClientiBySocieta(@Param("idSocieta") Long idSocieta);
+
+    @Query ("SELECT p FROM Progetto p join p.dipendenti d where d.redditoAnnuoLordo > :ral")
+    List<Progetto> findAllByDipendente_RalGreaterThan(@Param("ral") int ral);
 }
+
+
+//La lista di progetti  in cui lavora almeno un dipendente con una RAL a partire da 30000

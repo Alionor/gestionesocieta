@@ -88,5 +88,9 @@ public class SocietaServiceImpl implements SocietaService {
         return query.getResultList();
     }
 
+    public List<String> trovaSocietaPerProgettiMaggioriDiUnAnno() {
+        return societaRepository.findAllByProgetti_durataInMesiGreaterThan(12);
+    }
+
 
 }

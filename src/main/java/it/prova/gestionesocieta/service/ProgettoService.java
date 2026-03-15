@@ -22,4 +22,7 @@ public interface ProgettoService {
     public Progetto trovaPerIdEager(Long idProgetto);
 
     public List<String> trovaClientiDiProgettiBySocieta(Societa societa);
+
+    public List<Progetto> trovaProgettiByDipendenteConRalMaggioreDi30k();
+
 }
