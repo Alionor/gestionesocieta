@@ -54,4 +54,10 @@ public class BatteriaTestProgetto {
         System.out.println("FINE TEST testAbbinamentoProgettoAPiuDipendenti: CON SUCCESSO");
     }
 
+    public void testListe() {
+        System.out.println("INIZIO testListe");
+        Societa societa = societaService.trovaPerId(1L);
+        System.out.println(progettoService.trovaClientiDiProgettiBySocieta(societa));
+    }
+
 }

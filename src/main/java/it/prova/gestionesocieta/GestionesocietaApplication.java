@@ -1,5 +1,6 @@
 package it.prova.gestionesocieta;
 
+import it.prova.gestionesocieta.service.ProgettoService;
 import it.prova.gestionesocieta.service.test.BatteriaTestDipendente;
 import it.prova.gestionesocieta.service.test.BatteriaTestProgetto;
 import it.prova.gestionesocieta.service.test.BatteriaTestSocieta;
@@ -33,5 +34,8 @@ public class GestionesocietaApplication implements CommandLineRunner {
 
 		//progetto
 		testProgetto.testAbbinamentoProgettoAPiuDipendenti();
+
+		//liste di select
+		testProgetto.testListe();
 	}
 }

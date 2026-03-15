@@ -1,13 +1,10 @@
 package it.prova.gestionesocieta.repository;
 
-import it.prova.gestionesocieta.model.Dipendente;
 import it.prova.gestionesocieta.model.Societa;
 import org.springframework.data.jpa.repository.EntityGraph;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.NativeQuery;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 public interface SocietaRepository  extends CrudRepository<Societa, Long> {
 
@@ -19,6 +16,5 @@ public interface SocietaRepository  extends CrudRepository<Societa, Long> {
 /*    @Modifying
     @Query("UPDATE Dipendente d SET d.societa.id = NULL WHERE d.societa.id = :societaId")
     void unlinkEmployeesFromSociety(@Param("societaId")Long idSocieta);*/
-
 
 }

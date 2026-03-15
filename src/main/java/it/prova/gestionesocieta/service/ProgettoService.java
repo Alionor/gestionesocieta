@@ -2,6 +2,7 @@ package it.prova.gestionesocieta.service;
 
 import it.prova.gestionesocieta.model.Dipendente;
 import it.prova.gestionesocieta.model.Progetto;
+import it.prova.gestionesocieta.model.Societa;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface ProgettoService {
     public void collegaProgettoAPiuDipendenti(Long idProgetto, List<Dipendente> dipendenti);
 
     public Progetto trovaPerIdEager(Long idProgetto);
+
+    public List<String> trovaClientiDiProgettiBySocieta(Societa societa);
 }

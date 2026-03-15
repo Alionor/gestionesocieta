@@ -54,6 +54,7 @@ public class ProgettoServiceImpl implements ProgettoService {
                 throw new RuntimeException("La durata del progetto supera la data di chiusura della società.");
             progetto.getDipendenti().add(dipendenteCurr);
             dipendenteCurr.getProgetti().add(progetto); //SENZA QUESTA RIGA NON SALVA EFEFTTIVAMENTE I DIPENDENTI NEL PROGETTO E AL MOMENTO DEL TEST AL FETCHJOIN LA LISTA DEI DIPENDENTI NEL PROGETTO RISULTA VUOTA ANCHE SE SONO STATI EFFETTIVAMENTE AGGIUNTI DALLA RIGA SOPRA. PERCHè?
+            //Bisogna mantenere coerenti entrambi i lati di una relazione ManyToMany bidirezionale?
         });
         progettoRepository.save(progetto);
     }
@@ -61,4 +62,9 @@ public class ProgettoServiceImpl implements ProgettoService {
     public Progetto trovaPerIdEager(Long idProgetto) {
         return progettoRepository.findEagerById(idProgetto);
     }
+
+    public List<String> trovaClientiDiProgettiBySocieta(Societa societa) {
+       return progettoRepository.findClientiBySocieta(societa.getId());
+    }
+
 }
