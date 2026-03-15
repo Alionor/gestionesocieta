@@ -1,6 +1,7 @@
 package it.prova.gestionesocieta.service;
 
 import it.prova.gestionesocieta.model.Dipendente;
+import it.prova.gestionesocieta.model.Progetto;
 import it.prova.gestionesocieta.model.Societa;
 import it.prova.gestionesocieta.repository.DipendenteRepository;
 import it.prova.gestionesocieta.repository.SocietaRepository;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -65,6 +67,23 @@ public class DipendenteServiceImpl implements DipendenteService {
             throw new RuntimeException("Errore: data assunzione precedente a data fondazione.");
 
         dipendenteRepository.save(dipendente);
+    }
+
+    @Transactional
+    public void collegaDipendenteAPiuProgetti(Dipendente dipendente, List<Progetto> progetti) {
+        progetti.forEach(progetto -> {
+            if (dipendente.getSocieta().getDataChiusura() != null &&
+                    dipendente.getSocieta().getDataChiusura().isBefore(LocalDate.now().plusMonths(progetto.getDurataInMesi())))
+                throw new RuntimeException("La durata del progetto supera la data di chiusura della società.");
+            // dipendenteRepository.linkProjectsToEmployee(dipendente.getId(), progetto.getId());
+            // <--- DOMANDA PERCHè NON FUNZIONA L'AGGIORNAMENTO SOPRA!!
+            dipendente.getProgetti().add(progetto);
+        });
+        dipendenteRepository.save(dipendente);
+    }
+
+    public Dipendente trovaPerIdEager(Long idDipendente) {
+        return dipendenteRepository.getDipendenteEagerById(idDipendente);
     }
 
 }

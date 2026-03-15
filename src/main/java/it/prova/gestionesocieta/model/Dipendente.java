@@ -31,11 +31,12 @@ public class Dipendente {
             inverseJoinColumns = @JoinColumn(name = "progetto_id", referencedColumnName = "id"))
     private Set<Progetto> progetti = new HashSet<>();
 
-    public Dipendente(String nome, String cognome, LocalDate dataAssunzione, int redditoAnnuoLordo) {
+    public Dipendente(String nome, String cognome, LocalDate dataAssunzione, int redditoAnnuoLordo, Societa societa) {
         this.nome = nome;
         this.cognome = cognome;
         this.dataAssunzione = dataAssunzione;
         this.redditoAnnuoLordo = redditoAnnuoLordo;
+        this.societa = societa;
     }
 
     public Dipendente() {

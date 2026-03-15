@@ -1,6 +1,7 @@
 package it.prova.gestionesocieta.service;
 
 import it.prova.gestionesocieta.model.Dipendente;
+import it.prova.gestionesocieta.model.Progetto;
 
 import java.util.List;
 
@@ -20,4 +21,9 @@ public interface DipendenteService {
 
     public void inserisciNuovoConControllo(Long idSocieta, Dipendente dipendente);
 
-}
+    public void collegaDipendenteAPiuProgetti(Dipendente dipendente, List<Progetto> progetti);
+
+    public Dipendente trovaPerIdEager(Long idDipendente);
+
+
+    }

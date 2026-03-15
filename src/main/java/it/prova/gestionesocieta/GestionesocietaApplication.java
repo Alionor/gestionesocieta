@@ -24,10 +24,11 @@ public class GestionesocietaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//società
-		testSocieta.testInserimentoERimozioneDiSocieta();
-		testSocieta.testFindByQuery();
+		//testSocieta.testInserimentoERimozioneDiSocieta();
+		//testSocieta.testFindByQuery();
 
 		//dipendente
-		testDipendente.testInserimentoDipendenteConControllo();
+		//testDipendente.testInserimentoDipendenteConControllo();
+		testDipendente.testAbbinamentoDipendenteAProgetti();
 	}
 }
