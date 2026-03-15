@@ -72,7 +72,9 @@ public class BatteriaTestSelect {
         System.out.println("°°°°°°°°°°trovaProgettiByDipendenteConRalMaggioreDi30k°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
         System.out.println(progettoService.trovaProgettiByDipendenteConRalMaggioreDi30k());
 
-        // System.out.println("°°°°°°°°°°findClientiBySocieta°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
+        System.out.println("°°°°°°°°°°trovaDipendenteLavorativamentePiuAnzianoDiSocietaFondatePrimaDel1990InProgettiConDurataMaggioreDi6Mesi°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
+        System.out.println(dipendenteService.trovaDipendenteLavorativamentePiuAnzianoDiSocietaFondatePrimaDel1990InProgettiConDurataMaggioreDi6Mesi());
+
         //  System.out.println("°°°°°°°°°°findClientiBySocieta°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
         //   System.out.println("°°°°°°°°°°findClientiBySocieta°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°");
 

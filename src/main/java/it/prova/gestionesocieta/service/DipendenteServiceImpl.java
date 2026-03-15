@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -84,6 +85,10 @@ public class DipendenteServiceImpl implements DipendenteService {
 
     public Dipendente trovaPerIdEager(Long idDipendente) {
         return dipendenteRepository.getDipendenteEagerById(idDipendente);
+    }
+
+    public Optional<Dipendente> trovaDipendenteLavorativamentePiuAnzianoDiSocietaFondatePrimaDel1990InProgettiConDurataMaggioreDi6Mesi() {
+        return dipendenteRepository.getDipendenteWhoHasWorkedLongerInSocietaFoundedBeforeDataWorkingOnProgettoLastingMoreThan(LocalDate.of(1990,1,1), 6);
     }
 
 }

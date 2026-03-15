@@ -4,6 +4,7 @@ import it.prova.gestionesocieta.model.Dipendente;
 import it.prova.gestionesocieta.model.Progetto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DipendenteService {
 
@@ -24,6 +25,8 @@ public interface DipendenteService {
     public void collegaDipendenteAPiuProgetti(Dipendente dipendente, List<Progetto> progetti);
 
     public Dipendente trovaPerIdEager(Long idDipendente);
+
+    public Optional<Dipendente> trovaDipendenteLavorativamentePiuAnzianoDiSocietaFondatePrimaDel1990InProgettiConDurataMaggioreDi6Mesi();
 
 
     }

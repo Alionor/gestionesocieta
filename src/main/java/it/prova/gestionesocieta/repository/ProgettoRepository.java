@@ -22,5 +22,3 @@ public interface ProgettoRepository  extends CrudRepository<Progetto, Long> {
     List<Progetto> findAllByDipendente_RalGreaterThan(@Param("ral") int ral);
 }
 
-
-//La lista di progetti  in cui lavora almeno un dipendente con una RAL a partire da 30000
